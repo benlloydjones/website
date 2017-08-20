@@ -1,0 +1,45 @@
+body {
+  max-width: 600px;
+  min-widht: 320px;
+  margin: auto;
+  /*background-image: url('/Users/benjones/website/images/bigCroud.jpeg');
+  background-position: top right;*/
+}
+h1, h2 {
+  text-align: center;
+  font-family: serif;
+}
+h3 {
+
+  font-family: serif;
+}
+a, p {
+  font-family: Roboto, sans-serif;
+  color: rgb(255, 255, 255);
+}
+nav a {
+  padding: 0.5em 0;
+  display: inline-block;
+  float: left;
+  width: 25%;
+  text-decoration: none;
+  text-align: center;
+  background-color: rgb(144, 188, 218);
+}
+nav a.active {
+  background-color: rgb(124, 161, 187);
+  color: rgb(255, 255, 255);
+}
+nav a:hover {
+  background-color: rgb(165, 215, 249);
+}
+.clearfix {
+  clear:both;
+}
+p, h3 {
+  background: rgb(144, 188, 218);
+  padding: 0.3em;
+}
+article {
+  margin: 0 0 3em 0;
+}
