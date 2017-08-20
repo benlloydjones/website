@@ -13,7 +13,7 @@ h3 {
 
   font-family: serif;
 }
-a, p {
+a, p, article ul{
   font-family: Roboto, sans-serif;
   color: rgb(255, 255, 255);
 }
@@ -36,7 +36,7 @@ nav a:hover {
 .clearfix {
   clear:both;
 }
-p, h3 {
+p, h3, article ul {
   background: rgb(144, 188, 218);
   padding: 0.3em;
 }
