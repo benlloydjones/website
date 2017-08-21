@@ -1,45 +1,24 @@
-body {
-  max-width: 600px;
-  min-widht: 320px;
-  margin: auto;
-  /*background-image: url('/Users/benjones/website/images/bigCroud.jpeg');
-  background-position: top right;*/
+* {
+  box-sizing: border-box;
 }
-h1, h2 {
-  text-align: center;
-  font-family: serif;
-}
-h3 {
+header {
 
-  font-family: serif;
 }
-a, p, article ul{
-  font-family: Roboto, sans-serif;
-  color: rgb(255, 255, 255);
+header h1 {
+  text-align: center;
 }
-nav a {
-  padding: 0.5em 0;
-  display: inline-block;
+nav {
+  
+}
+nav ul {
+  list-style: none;
+}
+nav li {
+  background: lightgrey;
   float: left;
   width: 25%;
-  text-decoration: none;
-  text-align: center;
-  background-color: rgb(144, 188, 218);
 }
-nav a.active {
-  background-color: rgb(124, 161, 187);
-  color: rgb(255, 255, 255);
-}
-nav a:hover {
-  background-color: rgb(165, 215, 249);
-}
-.clearfix {
-  clear:both;
-}
-p, h3, article ul {
-  background: rgb(144, 188, 218);
-  padding: 0.3em;
-}
-article {
-  margin: 0 0 3em 0;
+main {
+  width: 960px;
+  margin: 0 auto;
 }
