@@ -1,0 +1,116 @@
+body {
+  background-image: url('../images/arches.png');
+}
+
+.fadedArches {
+  background-color: #fafafa;
+  background-color: rgba(246,195,175, 0.1);
+}
+
+.headshotContainer {
+  background-image: url('http://via.placeholder.com/300x350')
+}
+
+.title {
+  color: darkslategrey;
+  font-family: 'Roboto Slab', serif;
+}
+
+p, .subtitle, a {
+  color: darkslategrey;
+  font-family: 'Rubik', sans-serif;
+}
+
+.navbar {
+  background-color: white;
+  position: fixed;
+  width: 100%;
+  z-index: 500;
+}
+
+.hero {
+  padding-top: 52px;
+}
+
+main {
+  background-color: #fafafa;
+  background-color: rgba(246,195,175, 0.1);
+}
+
+
+.sectionTitle {
+  margin-top: 52px;
+  text-align: center;
+}
+
+.projectContainer {
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+.portfolioBox {
+  background-color: #fafafa;
+  background-color: rgba(255, 255, 255, 0.4);
+  border: 1px solid lightSalmon;
+  min-height: 400px;
+}
+
+.projectText {
+  margin-top: 33%;
+  position: relative;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+  vertical-align: middle;
+}
+
+.project1, .project2, .project3, .project4, .project5 {
+  padding: 10px;
+}
+
+.project1:hover p, .project2:hover p, .project3:hover p, .project4:hover p, .project5:hover p {
+  visibility: hidden;
+}
+
+.project1:hover {
+  background-image: url('http://i.imgur.com/ZFKijCz.png');
+  background-position: center;
+  background-size: cover;
+  border-radius: 5px;
+}
+
+.project2:hover {
+  background-image: url('https://i.imgur.com/WZOuM14.png');
+  background-position: center;
+  background-size: cover;
+  border-radius: 5px;
+}
+
+.project3:hover {
+  background-image: url('https://i.imgur.com/wUzylfh.png');
+  background-position: center;
+  background-size: cover;
+  border-radius: 5px;
+}
+
+.project4:hover {
+  background-image: url('https://i.imgur.com/LoUuR8F.png');
+  background-position: center;
+  background-size: cover;
+  border-radius: 5px;
+}
+
+.project5:hover {
+  background-image: url('http://exercism.io/icons/logo.svg');
+  background-position: center;
+  background-size: cover;
+  border-radius: 5px;
+}
+
+.iconContainer {
+  text-align: center;
+}
+
+.svg-inline--fa {
+  font-size: 10em;
+}
