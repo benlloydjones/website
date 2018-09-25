@@ -1,17 +1,19 @@
-$(() => {
+window.onload = function() {
 
-  const $navbarBurger = $('.navbar-burger');
-  const $navbarMenu = $('.navbar-menu');
-  const $navbarItems = $('.navbar-item');
+  const navbarBurger = document.querySelector('.navbar-burger');
+  const navbarMenu = document.querySelector('.navbar-menu');
+  const navbarItems = document.querySelectorAll('.navbar-items');
 
-  $navbarBurger.on('click',() => {
-    $navbarBurger.toggleClass('is-active');
-    $navbarMenu.toggleClass('is-active');
-  });
+  navbarBurger.onclick = function() {
 
-  $navbarItems.on('click',() => {
-    $navbarBurger.removeClass('is-active');
-    $navbarMenu.removeClass('is-active');
-  });
+    navbarBurger.classList.toggle('is-active');
+    navbarMenu.classList.toggle('is-active');
+  }
 
-});
+  navbarItems.forEach(function(navbarItem) {
+    navbarItem.onclick = function() {
+      navbarBurger.classList.remove('is-active');
+      navbarMenu.classList.remove('is-active');
+    }    
+  })
+}
