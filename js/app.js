@@ -1,19 +1,27 @@
-window.onload = function() {
+window.onload = init;
 
-  const navbarBurger = document.querySelector('.navbar-burger');
-  const navbarMenu = document.querySelector('.navbar-menu');
-  const navbarItems = document.querySelectorAll('.navbar-items');
+function init() {
+  addBens();
+  window.addEventListener("scroll", scrollListener);
+}
 
-  navbarBurger.onclick = function() {
-
-    navbarBurger.classList.toggle('is-active');
-    navbarMenu.classList.toggle('is-active');
+function scrollListener(e) {
+  if (window.scrollMaxY - window.scrollY < 500) {
+    addBens();
   }
+}
 
-  navbarItems.forEach(function(navbarItem) {
-    navbarItem.onclick = function() {
-      navbarBurger.classList.remove('is-active');
-      navbarMenu.classList.remove('is-active');
-    }    
-  })
+function addBens() {
+  console.log("Add ben");
+  const main = document.querySelector("main");
+  main.innerHTML += benTextContent();
+}
+
+function benTextContent() {
+  return Array.from(
+    { length: 1000 },
+    (_, i) => i % 6 === 5 ?
+      `<a href="/lander.html" class="rainbow-5"> Ben </a>` :
+      `<span class="rainbow-${i % 6}"> Ben </span>`
+  ).join("");
 }
