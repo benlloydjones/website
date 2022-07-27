@@ -2,17 +2,18 @@ window.onload = init;
 
 function init() {
   addBens();
+  console.log("load");
   window.addEventListener("scroll", scrollListener);
 }
 
 function scrollListener(e) {
-  if (window.scrollMaxY - window.scrollY < 500) {
+  const { scrollMaxY, scrollY } = window;
+  if (scrollMaxY - scrollY < 500) {
     addBens();
   }
 }
 
 function addBens() {
-  console.log("Add ben");
   const main = document.querySelector("main");
   main.innerHTML += benTextContent();
 }
