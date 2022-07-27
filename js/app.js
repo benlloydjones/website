@@ -2,13 +2,13 @@ window.onload = init;
 
 function init() {
   addBens();
-  console.log("load");
   window.addEventListener("scroll", scrollListener);
 }
 
 function scrollListener(e) {
-  const { scrollMaxY, scrollY } = window;
-  if (scrollMaxY - scrollY < 500) {
+  const { scrollY, innerHeight } = window;
+  const { scrollHeight } = document.querySelector("#main");
+  if (scrollHeight - scrollY - innerHeight < 500) {
     addBens();
   }
 }
@@ -22,7 +22,7 @@ function benTextContent() {
   return Array.from(
     { length: 1000 },
     (_, i) => i % 6 === 5 ?
-      `<a href="/lander.html" class="rainbow-5"> Ben </a>` :
-      `<span class="rainbow-${i % 6}"> Ben </span>`
+      `<a href="/lander.html" class="rainbow-5"> Ben</a>` :
+      `<span class="rainbow-${i % 6}"> Ben</span>`
   ).join("");
 }

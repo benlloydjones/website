@@ -1,7 +1,11 @@
 body {
-  margin: 0 auto;
   background-color: slategray;
   font-size: 3em;
+}
+
+#main {
+  margin: 0 auto;
+  text-align: center;
 }
 
 .rainbow-0 {
