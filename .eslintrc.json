@@ -8,6 +8,9 @@
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
+    "ignorePatterns": [
+        "lander_rust.js"
+    ],
     "rules": {
         "indent": [
             "error",
