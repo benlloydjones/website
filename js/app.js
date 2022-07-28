@@ -5,7 +5,7 @@ function init() {
     window.addEventListener("scroll", scrollListener);
 }
 
-function scrollListener(e) {
+function scrollListener() {
     const { scrollY, innerHeight } = window;
     const { scrollHeight } = document.querySelector("#main");
     if (scrollHeight - scrollY - innerHeight < 500) {
