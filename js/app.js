@@ -22,7 +22,7 @@ function benTextContent() {
     return Array.from(
         { length: 1000 },
         (_, i) => i % 6 === 5 ?
-            "<a href=\"/lander.html\" class=\"rainbow-5\"> Ben</a>" :
+            "<a href=\"/lander\" class=\"rainbow-5\"> Ben</a>" :
             `<span class="rainbow-${i % 6}"> Ben</span>`
     ).join("");
 }
