@@ -1,0 +1,8 @@
+node_modules
+.eslintrc.json
+.gitignore
+access.*
+nginx.pid
+package*.json
+README.md
+*.sh

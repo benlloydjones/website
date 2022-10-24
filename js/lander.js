@@ -54,21 +54,28 @@ let inputBuffer, lander, terrain, prevTimestamp;
 
 function initialize() {
     const startButton = document.querySelector("#start-game");
-    startButton.addEventListener("click", startGame);
+    startButton.addEventListener("click", startGame, true);
 }
 
 function startGame(e) {
-    e.target.innerHTML = "Reset Game";
     init()
         .then(() => {
-            init_panic();
-            inputBuffer = get_input_buffer();
-            lander = get_lander();
-            terrain = get_terrain(6);
-            document.addEventListener("keydown", (e) => inputBuffer.receive_key_down(e.code));
-            document.addEventListener("keyup", (e) => inputBuffer.receive_key_up(e.code));
-            requestAnimationFrame(tick);
+            initializeClasses();
+            e.target.innerHTML = "Reset Game";
+            e.target.removeEventListener("click", startGame, true);
+            e.target.addEventListener("click", initializeClasses, true);
         });
+}
+
+function initializeClasses() {
+    const ctx = document.getElementById("canvas").getContext("2d");
+    init_panic();
+    inputBuffer = get_input_buffer();
+    lander = get_lander();
+    terrain = get_terrain(6);
+    document.addEventListener("keydown", (e) => inputBuffer.receive_key_down(e.code));
+    document.addEventListener("keyup", (e) => inputBuffer.receive_key_up(e.code));
+    requestAnimationFrame((timestamp) => tick(timestamp, ctx));
 }
 
 function getAndUpdateElapsedTime(timestamp) {
@@ -77,26 +84,44 @@ function getAndUpdateElapsedTime(timestamp) {
     return elapsed;
 }
 
-function tick(timestamp) {
-    const elapsed = getAndUpdateElapsedTime(timestamp);
-    const ctx = document.getElementById("canvas").getContext("2d");
-    lander = lander_move(lander, inputBuffer, elapsed);
+function resetPrevTimeStamp() {
+    prevTimestamp = undefined;
+}
+
+function tick(timestamp, ctx) {
+    if (!document.hasFocus()) {
+        requestAnimationFrame((timestamp) => {
+            resetPrevTimeStamp();
+            tick(timestamp, ctx);
+        });
+        return;
+    }
+    lander = lander_move(
+        lander,
+        inputBuffer,
+        getAndUpdateElapsedTime(timestamp),
+    );
+    drawWorld(ctx);
+    updateTelemetry();
+    gameHasEnded() ? endGame(ctx) : requestAnimationFrame((timestamp) => tick(timestamp, ctx));
+}
+
+function drawWorld(ctx) {
     ctx.clearRect(0, 0, 640, 480);
     draw(ctx, unflattenCoords(lander_get_coords(lander)));
     draw(ctx, unflattenCoords(terrain_get_coords(terrain)));
     drawLandingZoneFlags(ctx, unflattenCoords(terrain_get_landing_zone_coords(terrain)));
-    updateTelemetry();
-    if (
-        !lander_is_out_of_bounds(lander) &&
-        !lander_intersects_terrain(lander, terrain)
-    ) {
-        requestAnimationFrame(tick);
+}
+
+function gameHasEnded() {
+    return lander_is_out_of_bounds(lander) || lander_intersects_terrain(lander, terrain);
+}
+
+function endGame(ctx) {
+    if (lander_successfully_landed(lander, terrain)) {
+        win(ctx);
     } else {
-        if (lander_successfully_landed(lander, terrain)) {
-            win(ctx);
-        } else {
-            lose(ctx);
-        }
+        lose(ctx);
     }
 }
 

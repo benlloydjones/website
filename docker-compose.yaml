@@ -1,0 +1,6 @@
+services:
+  app:
+    hostname: website
+    image: website:latest
+    ports:
+      - 80:8000
