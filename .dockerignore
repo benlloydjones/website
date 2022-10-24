@@ -1,8 +1,7 @@
 node_modules
 .eslintrc.json
 .gitignore
-access.*
-nginx.pid
+.git
 package*.json
 README.md
 *.sh

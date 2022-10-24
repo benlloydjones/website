@@ -3,3 +3,4 @@ node_modules
 nginx.pid
 access.log
 access.log.backup
+*.sh
