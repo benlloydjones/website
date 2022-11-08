@@ -6,5 +6,5 @@ COPY . .
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY --from=wasm-build /usr/src/app/pkg/lander_rust* ./js/
 RUN mkdir -p /mnt/logs/nginx
-EXPOSE 80:8000
+EXPOSE 80:80
 CMD "nginx" "-g" "daemon off;"
